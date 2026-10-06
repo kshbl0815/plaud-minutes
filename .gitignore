@@ -1,0 +1,7 @@
+node_modules/
+tools/node_modules/
+tests/fixtures/*.mp3
+tests/fixtures/*.wav
+tests/fixtures/*.m4a
+tests/screens/
+dist/

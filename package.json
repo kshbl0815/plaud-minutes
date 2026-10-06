@@ -1,0 +1,12 @@
+{
+  "name": "plaud-minutes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Plaud 녹음 → 한국어 회의록 PWA (서버 없음)",
+  "scripts": {
+    "test": "node --test tests/",
+    "serve": "node tools/serve.js app 8080"
+  },
+  "license": "MIT"
+}
