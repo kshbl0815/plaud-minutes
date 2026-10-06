@@ -538,8 +538,9 @@ async function init() {
   $('#syncBtn').onclick = () => runSync(true);
   $('#syncStatus').onclick = () => runSync(true);
   window.addEventListener('hashchange', route);
-  // 이전에 중단된 작업 재개
-  for (const m of meetings) {
+  // 이전에 중단된 작업 재개 (API 키가 있을 때만)
+  const ready = sttConfig(settings, keys).apiKey && llmConfig(settings, keys).apiKey;
+  for (const m of ready ? meetings : []) {
     if (['transcribing', 'summarizing'].includes(m.status) && settings.autoProcess) enqueue(m.id);
     else if (m.status === 'imported' && settings.autoProcess && m.audioLocal) enqueue(m.id);
     else if (m.status === 'paused' && m.resumeAt) setTimeout(() => enqueue(m.id), Math.max(3000, m.resumeAt - Date.now()));

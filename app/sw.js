@@ -1,5 +1,5 @@
 // 서비스 워커: 앱 셸 캐시 + Web Share Target(오디오 공유 받기)
-const VERSION = 'pm-v1';
+const VERSION = 'pm-v2';
 const SHELL = ['./', './index.html', './styles.css', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png',
   './js/app.js', './js/audio.js', './js/db.js', './js/drive.js', './js/llm.js', './js/minutes.js', './js/net.js', './js/pipeline.js', './js/search.js', './js/settings.js', './js/stt.js', './js/sync.js'];
 
