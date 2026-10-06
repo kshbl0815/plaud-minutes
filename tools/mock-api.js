@@ -70,13 +70,13 @@ export function startMock(port = 0) {
       if (/주제 "/.test(j.messages[0].content)) content = '## 한눈에 보기\n예산 주제 종합.\n## 누적 결정사항\n- 예산 10% 증액';
       else if (/근거해서만/.test(j.messages[0].content)) content = '예산은 10% 증액으로 결정되었습니다 (2026-10-06 회의).';
       else if (isJson) content = '```json\n' + JSON.stringify({
-        title: '분기 예산 및 출시 일정 회의', date: '2026-10-06', attendees: ['김성훈'],
+        title: '분기 예산 및 출시 일정 회의', date: '2026-10-06', attendees: ['홍길동'],
         overall_summary: `전사본 ${user.length}자를 요약했습니다. 예산 증액과 출시 일정을 논의했습니다.`,
         topics: [
-          { title: '예산 검토', tag: '예산', time_range: '00:00-05:00', summary: '다음 달 예산 10% 증액안 논의', key_points: ['마케팅비 증가'], decisions: ['10% 증액'], action_items: [{ owner: '김성훈', task: '예산안 작성', due: '10/10' }] },
+          { title: '예산 검토', tag: '예산', time_range: '00:00-05:00', summary: '다음 달 예산 10% 증액안 논의', key_points: ['마케팅비 증가'], decisions: ['10% 증액'], action_items: [{ owner: '홍길동', task: '예산안 작성', due: '10/10' }] },
           { title: '출시 일정', tag: '제품 출시', time_range: '05:00-10:00', summary: '베타 출시 11월 확정', key_points: [], decisions: ['11월 베타'], action_items: [] },
         ],
-        action_items: [{ owner: '김성훈', task: '예산안 작성', due: '10/10' }], open_issues: ['디자인 인력'], tags: ['예산', '제품 출시'], keywords: ['예산', '베타'],
+        action_items: [{ owner: '홍길동', task: '예산안 작성', due: '10/10' }], open_issues: ['디자인 인력'], tags: ['예산', '제품 출시'], keywords: ['예산', '베타'],
       }) + '\n```';
       else content = '응답';
       return send(200, { choices: [{ message: { role: 'assistant', content } }] });

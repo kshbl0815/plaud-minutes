@@ -424,7 +424,7 @@ async function renderSettings() {
     <label>모델</label><input type="text" id="sttModel" value="${esc(so.model || sP.model)}">
     <label>청크 길이(분, 0=분할 안 함)</label><input type="number" id="sttChunk" min="0" max="180" value="${so.chunkMin ?? sP.chunkMin}">
     <label class="row"><input type="checkbox" id="diarize" ${s.diarize ? 'checked' : ''}> 화자 구분 (xAI만 지원)</label>
-    <label>용어 사전 (사람 이름·제품명 등, 쉼표 구분 — 인식 정확도 향상)</label><textarea id="keyterms" placeholder="예: 플라우드, 김성훈, OKR, 베타 출시">${esc(s.keyterms)}</textarea>
+    <label>용어 사전 (사람 이름·제품명 등, 쉼표 구분 — 인식 정확도 향상)</label><textarea id="keyterms" placeholder="예: 플라우드, 홍길동, OKR, 베타 출시">${esc(s.keyterms)}</textarea>
     <label>언어 코드</label><input type="text" id="language" value="${esc(s.language)}">
     <details><summary>고급: Base URL</summary><input type="url" id="sttBase" value="${esc(so.baseUrl || sP.baseUrl)}"></details>
   </fieldset>

@@ -45,7 +45,7 @@ test('회의록 생성: 단일 요청 + 파트 분할(map-reduce) + response_for
     const mm2 = await generateMinutes(cfg, m, []);
     assert.equal(mm2.title, '분기 예산 및 출시 일정 회의');
     m.minutes = mm; m.title = mm.title; m.tags = mm.tags; m.minutesMd = minutesToMarkdown(m);
-    assert.match(m.minutesMd, /## 주제별 논의/); assert.match(m.minutesMd, /- \[ \] 김성훈 — 예산안 작성 \(기한: 10\/10\)/);
+    assert.match(m.minutesMd, /## 주제별 논의/); assert.match(m.minutesMd, /- \[ \] 홍길동 — 예산안 작성 \(기한: 10\/10\)/);
     assert.match(exportMarkdown(m), /## 전사본/);
     const roll = await generateTopicRollup(cfg, '예산', [m]);
     assert.match(roll, /누적 결정사항/);

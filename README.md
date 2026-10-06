@@ -1,5 +1,7 @@
 # 🎙️ Plaud 회의록 (PWA)
 
+> **앱 주소: https://kshbl0815.github.io/plaud-minutes/**  (휴대폰·PC 공용)
+
 Plaud Note Pro로 녹음한 파일을 **한국어 회의록**으로 만들어 주는 웹앱입니다.
 Plaud 앱은 **녹음/동기화만** 하고, 전사·요약·보관·검색은 이 앱이 합니다. → Plaud의 월 300분 전사 제한과 상관없이 쓸 수 있습니다.
 
@@ -26,22 +28,17 @@ Plaud 앱은 **녹음/동기화만** 하고, 전사·요약·보관·검색은 �
 
 ## 2. 설치 (한 번만)
 
-### 2-1. 웹에 올리기 (무료, 둘 중 하나)
-**A. Cloudflare Pages (가장 쉬움, Git 불필요)**
-1. https://dash.cloudflare.com → Workers & Pages → Create → Pages → **Upload assets**
-2. `plaud-minutes-app.zip`의 압축을 풀어 나온 파일(`index.html`이 있는 폴더)을 업로드 → 주소 예: `https://plaud-minutes.pages.dev`
-
-**B. GitHub Pages**
-1. GitHub에 새 저장소를 만들고 이 프로젝트를 올립니다(`app/` 폴더 포함).
-2. Settings → Pages → Source: **GitHub Actions** (포함된 `.github/workflows/pages.yml`이 `app/`을 배포) → 주소 예: `https://<아이디>.github.io/plaud-minutes/`
-   (무료 계정은 공개 저장소여야 합니다. 코드만 공개되고 회의 데이터·키는 저장소에 들어가지 않습니다.)
+### 2-1. 웹 주소 (이미 배포됨)
+- 앱 주소: **https://kshbl0815.github.io/plaud-minutes/**
+- 저장소: https://github.com/kshbl0815/plaud-minutes — `main` 브랜치에 push하면 GitHub Actions(`.github/workflows/pages.yml`)가 `app/` 폴더를 자동 배포합니다.
+- 직접 다른 곳에 올리고 싶다면: Cloudflare Pages → Upload assets 에 `app/` 폴더 내용을 올려도 됩니다.
 
 ### 2-2. 휴대폰에 설치
-1. 휴대폰 **Chrome**으로 위 주소 열기 → 메뉴(⋮) → **앱 설치**(또는 홈 화면에 추가)
+1. 휴대폰 **Chrome**으로 https://kshbl0815.github.io/plaud-minutes/ 열기 → 메뉴(⋮) → **앱 설치**(또는 홈 화면에 추가)
 2. 앱 열기 → ⚙️ 설정 → API 키 입력 → 💾 저장 → 🔑 키 확인
 
 ### 2-3. PC
-PC Chrome/Edge로 같은 주소를 열고 주소창의 설치 아이콘(⊕)을 누르면 데스크톱 앱처럼 쓸 수 있습니다. 파일은 끌어다 놓으면 됩니다.
+PC Chrome/Edge로 https://kshbl0815.github.io/plaud-minutes/ 를 열고 주소창의 설치 아이콘(⊕)을 누르면 데스크톱 앱처럼 쓸 수 있습니다. 파일은 끌어다 놓으면 됩니다.
 
 ### 2-4. (선택) Google Drive 동기화 — PC·휴대폰 같은 보관함
 Drive 접근에는 본인 소유의 "OAuth 클라이언트 ID"가 필요합니다(무료, 약 5분).
@@ -49,7 +46,8 @@ Drive 접근에는 본인 소유의 "OAuth 클라이언트 ID"가 필요합니�
 2. **API 및 서비스 → 라이브러리 → Google Drive API → 사용**
 3. **Google 인증 플랫폼(OAuth 동의 화면)**: 사용자 유형 *외부*, 앱 이름 "Plaud 회의록", 이메일 입력 → 데이터 액세스(범위)에 `.../auth/drive.file` 추가 → **대상 → 테스트 사용자**에 본인 Gmail 추가
 4. **사용자 인증 정보 → 사용자 인증 정보 만들기 → OAuth 클라이언트 ID → 웹 애플리케이션**
-   - 승인된 JavaScript 원본: 2-1의 주소의 **도메인까지만** (예: `https://plaud-minutes.pages.dev` 또는 `https://<아이디>.github.io`)
+   - 승인된 JavaScript 원본: **`https://kshbl0815.github.io`** (정확히 이 값, 끝에 `/`나 `/plaud-minutes` 붙이지 않음)
+   - 승인된 리디렉션 URI: 비워 두어도 됩니다(팝업 방식)
 5. 생성된 클라이언트 ID(`....apps.googleusercontent.com`)를 앱 설정 → *Google OAuth 클라이언트 ID*에 붙여넣고 **Google Drive 연결**
 6. PC와 휴대폰 모두에서 같은 클라이언트 ID로 연결하면 같은 보관함을 봅니다.
 
